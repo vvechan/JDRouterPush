@@ -148,7 +148,8 @@ def getControlDevice(mac,i):
         if control_device2 == "":
             point_info.update(control_device)
         else:
-            point_info.update(control_device,control_device2)
+            point_info.update(control_device)
+            point_info.update(control_device2)
     else:
         print("Find mac failure!")
 
