@@ -123,7 +123,19 @@ def getControlDevice(mac,i):
                 extstorage_exist = data["extstorage_exist"]
                 extstorage_enable = data["extstorage_enable"]
                 board = data["board"]
-                control_device = {"pluginInfo":True,"status":status,"nickname":nickname,"pcdnname":name,"cache_size":str(round(int(cache_size)/1000000,2)) + "GB"}
+                try:
+                    pcdn_st2 = pcdn_list[1]
+                    status2 = pcdn_st2["status"]
+                    nickname2 = pcdn_st2["nickname"]
+                    name2 = pcdn_st2["name"]
+                    cache_size2 = pcdn_st2["cache_size"]
+                    extstorage_exist2 = data["extstorage_exist"]
+                    extstorage_enable2 = data["extstorage_enable"]
+                    board2 = data["board"]
+                    control_device = [{"pluginInfo":True,"status":status,"nickname":nickname,"pcdnname":name,"cache_size":str(round(int(cache_size)/1000000,2)) + "GB"},
+                                      {"pluginInfo":True,"status":status2,"nickname":nickname2,"pcdnname":name2,"cache_size":str(round(int(cache_size2)/1000000,2)) + "GB"}]
+                except:
+                    control_device = {"pluginInfo":True,"status":status,"nickname":nickname,"pcdnname":name,"cache_size":str(round(int(cache_size)/1000000,2)) + "GB"}
         
     else:
         control_device = {"pluginInfo": False}
