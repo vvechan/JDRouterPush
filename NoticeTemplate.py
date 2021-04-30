@@ -17,7 +17,8 @@ def htmlTemplate():
 
 # markdown模板
 def markdownTemplate():
-    content = """{content}---
+    #content = """{content}---
+    content = """
 **数据日期:**
 ```
 {date}
